@@ -28,5 +28,5 @@ jobs:
 
       - name: Deploy
         run: |
-          cd docs
+          cd my-project
           mkdocs gh-deploy --force
