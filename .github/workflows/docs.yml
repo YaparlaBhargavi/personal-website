@@ -29,7 +29,8 @@ jobs:
       # The 'mkdocs gh-deploy' command automatically runs 'mkdocs build' first.
 
       - name: Deploy to GitHub Pages
-        # The 'working-directory' tells the runner to execute the command from
-        # inside the 'personal-website' folder, allowing mkdocs to find mkdocs.yml.
-        run: mkdocs gh-deploy --force
-        working-directory: personal-website
+        # Using 'cd' explicitly ensures the shell changes the directory
+        # before running mkdocs, avoiding the double-nesting error.
+        run: |
+          cd personal-website
+          mkdocs gh-deploy --force
