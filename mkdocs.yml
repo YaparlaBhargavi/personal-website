@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 site_name: Yaparla Bhargavi | Aspiring Data Story Teller & Developer
 site_url: https://yaparlabhargavi.com
 
 theme:
   name: material
   features:
-    - navigation.tabs        # <-- horizontal tabs, works in free/community version
+    - navigation.tabs
     - navigation.instant
     - toc.integrate
     - search.highlight
@@ -15,7 +14,6 @@ theme:
     accent: indigo
 
 nav:
-
   - Projects: projects.md
   - Blogs: Blogs.md
   - About: about.md
@@ -49,9 +47,3 @@ extra:
       link: https://github.com/YaparlaBhargavi
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/bhargaviyaparla/
-=======
-site_name: YAPARLA BHARGAVI
-site_url: http://127.0.0.1:8000/
-
-  
->>>>>>> 3ea654f36e647ed4c2ed1148a8b54b27afca1de5
