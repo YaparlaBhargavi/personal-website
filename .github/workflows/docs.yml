@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      # This ensures the workflow only runs if files inside personal-website change
       - 'personal-website/**'
   workflow_dispatch:
 
@@ -21,12 +22,14 @@ jobs:
         with:
           python-version: '3.x'
 
-      - run: pip install mkdocs mkdocs-material mkdocs-glightbox
+      - name: Install MkDocs and Plugins
+        run: pip install mkdocs mkdocs-material mkdocs-glightbox
 
-      - name: Build docs site
-        run: mkdocs build -f my-project/mkdocs.yml
+      # We can remove the separate 'Build docs site' step.
+      # The 'mkdocs gh-deploy' command automatically runs 'mkdocs build' first.
 
-      - name: Deploy
-        run: |
-          cd personal-website
-          mkdocs gh-deploy --force
+      - name: Deploy to GitHub Pages
+        # The 'working-directory' tells the runner to execute the command from
+        # inside the 'personal-website' folder, allowing mkdocs to find mkdocs.yml.
+        run: mkdocs gh-deploy --force
+        working-directory: personal-website
