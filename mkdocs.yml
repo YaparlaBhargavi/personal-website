@@ -1,1 +1,50 @@
-site_name: YAPARLA BHARGAVI
+site_name: Yaparla Bhargavi | Aspiring Data Story Teller & Developer
+site_url: https://yaparlabhargavi.com
+
+theme:
+  name: material
+  features:
+    - navigation.tabs        # <-- horizontal tabs, works in free/community version
+    - navigation.instant
+    - toc.integrate
+    - search.highlight
+    - search.suggest
+  palette:
+    primary: indigo
+    accent: indigo
+
+nav:
+
+  - Projects: projects.md
+  - Blogs: Blogs.md
+  - About: about.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+  - tags
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/YaparlaBhargavi
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/bhargaviyaparla/
