@@ -1,0 +1,32 @@
+name: publish-github-pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'my-project/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - run: pip install mkdocs mkdocs-material mkdocs-glightbox
+
+      - name: Build docs site
+        run: mkdocs build -f my-project/mkdocs.yml
+
+      - name: Deploy
+        run: |
+          cd my-project
+          mkdocs gh-deploy --force
